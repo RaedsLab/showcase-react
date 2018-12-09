@@ -9,21 +9,6 @@ import * as actions from '../../redux/actions/actions';
 // UI
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-
-// theme
-import { MuiThemeProvider } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Paper from '@material-ui/core/Paper';
-
-// Themes
-import themeLight from '../../themes/light';
-import themeLDark from '../../themes/night';
-
-// UI
-import Header from '../../components/Header/Header';
-import LeftMenu from '../../components/LeftMenu/LeftMenu';
-import ChartContainer from '../../components/ChartContainer/ChartContainer';
-
 // style
 import styles from './App.css';
 
@@ -32,7 +17,19 @@ import {
   extractListOfOrbits,
   filterNasaDataByOrbit
 } from '../../utils/formatter';
+
+// theme
+import { MuiThemeProvider } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import themeLight from '../../themes/light';
+import themeLDark from '../../themes/night';
+
+// UI
+import Header from '../../components/Header/Header';
+import LeftMenu from '../../components/LeftMenu/LeftMenu';
+import ChartContainer from '../../components/ChartContainer/ChartContainer';
 import ErrorDialog from '../../components/ErrorDialog/ErrorDialog';
+import Description from '../../components/Description/Description';
 
 export class App extends Component {
   state = {
@@ -90,10 +87,10 @@ export class App extends Component {
               />
             </Grid>
           </Grid>
-
-          <Paper className={classes.description}>
-            {this.props.descriptions.list[this.state.selectedOrbit]}
-          </Paper>
+          <Description
+            planet={this.state.selectedOrbit}
+            descriptions={this.props.descriptions}
+          />
         </div>
 
         <ErrorDialog
