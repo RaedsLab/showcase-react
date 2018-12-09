@@ -16,5 +16,10 @@ describe('<App />', () => {
     };
 
     const wrapper = shallow(<App {...props} />);
+
+    wrapper.instance().onOrbitChange('Earth');
+    expect(wrapper.instance().state.selectedOrbit).toBe('Earth');
+    wrapper.instance().onNightModeToggle(true);
+    expect(wrapper.instance().state.isNightMode).toBeTruthy();
   });
 });
