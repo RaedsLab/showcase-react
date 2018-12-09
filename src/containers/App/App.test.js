@@ -12,7 +12,13 @@ describe('<App />', () => {
         error: null,
         isLoading: false
       },
-      getPlanets: jest.fn(x => [])
+      descriptions: {
+        list: {}, // hashmap
+        error: null,
+        isLoading: false
+      },
+      getPlanets: jest.fn(x => []),
+      getDescription: jest.fn(x => {})
     };
 
     const wrapper = shallow(<App {...props} />);
