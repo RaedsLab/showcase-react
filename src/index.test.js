@@ -10,8 +10,17 @@ describe('index', () => {
   afterEach(() => {
     process.env = OLD_ENV;
   });
-  it('renders without crashing', () => {
+  it('renders without crashing in development env', () => {
     process.env.NODE_ENV = 'development';
+
+    const root = document.createElement('div');
+    root.setAttribute('id', 'root');
+    document.body.appendChild(root);
+    require('./index');
+  });
+
+  it('renders without crashing in test env', () => {
+    process.env.NODE_ENV = 'test';
 
     const root = document.createElement('div');
     root.setAttribute('id', 'root');
