@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import PropTypes from 'prop-types';
 
@@ -21,7 +21,7 @@ const OrbitSelector = function OrbitSelector(props) {
         <Select
           value={props.selectedOrbit}
           className={classes.select}
-          onChange={() => props.onOrbitChange(event.target.value)}
+          onChange={event => props.onOrbitChange(event.target.value)}
         >
           <MenuItem value="">
             <em>All</em>
