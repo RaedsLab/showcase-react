@@ -10,13 +10,13 @@ export const getPlanets = () => dispatch => {
   });
   return fecthNearEarthObjects()
     .then(response => {
-      dispatch({
+      return dispatch({
         type: GET_PLANETS_SUCCESS,
         data: response
       });
     })
     .catch(error => {
-      dispatch({
+      return dispatch({
         type: GET_PLANETS_ERROR,
         error
       });
