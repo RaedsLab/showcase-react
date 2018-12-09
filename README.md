@@ -4,8 +4,13 @@
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.png?v=103)](https://opensource.org/licenses/mit-license.php)
 
 
+# Showcase React 
+
+This is a project I use and maintain to learn more about React and Redux.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-[![forthebadge](https://forthebadge.com/images/badges/built-by-hipsters.svg)](https://forthebadge.com)
+If you see any big blunder in the way the code or tests are written, please comment or tweet me [@Raed667](https://twitter.com/raed667).
 
+[![forthebadge](https://forthebadge.com/images/badges/built-by-hipsters.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/uses-badges.svg)](https://forthebadge.com)
