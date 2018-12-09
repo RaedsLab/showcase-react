@@ -13,6 +13,9 @@ import Grid from '@material-ui/core/Grid';
 // theme
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import Paper from '@material-ui/core/Paper';
+
+// Themes
 import themeLight from '../../themes/light';
 import themeLDark from '../../themes/night';
 
@@ -29,6 +32,7 @@ import {
   extractListOfOrbits,
   filterNasaDataByOrbit
 } from '../../utils/formatter';
+import ErrorDialog from '../../components/ErrorDialog/ErrorDialog';
 
 export class App extends Component {
   state = {
@@ -50,21 +54,24 @@ export class App extends Component {
     this.setState({
       selectedOrbit
     });
+
+    this.props.getDescription(selectedOrbit);
+  };
+
+  onDialogClose = () => {
+    window.location.reload();
   };
 
   render() {
     const { classes } = this.props;
-
+    const theme = this.state.isNightMode ? themeLDark : themeLight;
     return (
-      <MuiThemeProvider
-        theme={this.state.isNightMode ? themeLDark : themeLight}
-      >
+      <MuiThemeProvider theme={theme}>
         <CssBaseline />
         <Header
           isNightMode={this.state.isNightMode}
           onNightModeToggle={this.onNightModeToggle}
         />
-
         <div className={classes.wrapper}>
           <Grid container spacing={24}>
             <Grid item xs={6} sm={3}>
@@ -83,7 +90,22 @@ export class App extends Component {
               />
             </Grid>
           </Grid>
+
+          <Paper className={classes.description}>
+            {this.props.description}
+          </Paper>
         </div>
+
+        <ErrorDialog
+          isOpen={
+            this.props.planets.error != null ||
+            this.props.descriptions.error != null
+          }
+          onClose={this.onDialogClose}
+          message={
+            'Oups ! there seems to be a network error. Please try again later !'
+          }
+        />
       </MuiThemeProvider>
     );
   }

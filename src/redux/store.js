@@ -5,7 +5,12 @@ import rootReducer from './reducers/root';
 
 const initialState = {
   planets: {
-    list: [],
+    list: [], // array
+    error: null,
+    isLoading: false
+  },
+  descriptions: {
+    list: {}, // hashmap
     error: null,
     isLoading: false
   }
