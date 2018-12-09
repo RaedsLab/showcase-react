@@ -18,7 +18,8 @@ describe('<App />', () => {
         isLoading: false
       },
       getPlanets: jest.fn(x => []),
-      getDescription: jest.fn(x => {})
+      getDescription: jest.fn(x => {}),
+      onDialogClose: jest.fn(x => {})
     };
 
     const wrapper = shallow(<App {...props} />);

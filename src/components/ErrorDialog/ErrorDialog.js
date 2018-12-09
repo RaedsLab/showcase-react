@@ -12,11 +12,14 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
+function reload() {
+  window.location.reload();
+}
+
 const ErrorDialog = function ErrorDialog(props) {
   return (
     <Dialog
       open={props.isOpen}
-      onClose={props.onClose}
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description"
     >
@@ -27,7 +30,7 @@ const ErrorDialog = function ErrorDialog(props) {
         </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={props.onClose} color="primary" autoFocus>
+        <Button onClick={reload} color="primary" autoFocus>
           Ok
         </Button>
       </DialogActions>
@@ -38,7 +41,6 @@ const ErrorDialog = function ErrorDialog(props) {
 ErrorDialog.propTypes = {
   classes: PropTypes.object.isRequired,
   message: PropTypes.string.isRequired,
-  onClose: PropTypes.func.isRequired,
   isOpen: PropTypes.bool.isRequired
 };
 

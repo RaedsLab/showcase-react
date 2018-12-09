@@ -55,10 +55,6 @@ export class App extends Component {
     this.props.getDescription(selectedOrbit);
   };
 
-  onDialogClose = () => {
-    window.location.reload();
-  };
-
   render() {
     const { classes } = this.props;
     const theme = this.state.isNightMode ? themeLDark : themeLight;
@@ -98,7 +94,7 @@ export class App extends Component {
             this.props.planets.error != null ||
             this.props.descriptions.error != null
           }
-          onClose={this.onDialogClose}
+          onClose={() => window.location.reload()}
           message={
             'Oups ! there seems to be a network error. Please try again later !'
           }

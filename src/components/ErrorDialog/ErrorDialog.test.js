@@ -15,11 +15,18 @@ describe('<ErrorDialog />', () => {
     //const wrapper = shallow(<Header {...props} />);
     const component = mount(<ErrorDialog {...props} />);
 
+    Object.defineProperty(window.location, 'reload', {
+      configurable: true
+      // writable: true,
+    });
+    window.location.reload = jest.fn();
+    expect(window.location.reload).not.toHaveBeenCalled();
+
     component
       .find(Button)
       .at(0)
       .simulate('click');
-
-    expect(props.onClose).toHaveBeenCalled();
+    expect(window.location.reload).toHaveBeenCalled();
+    window.location.reload.mockRestore();
   });
 });
