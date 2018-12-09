@@ -42,6 +42,28 @@ describe('descriptions reducer', () => {
     });
   });
 });
+
+it('should handle GET_DESCRIPTION_SUCCESS with malformed data', () => {
+  expect(
+    reducer(
+      {
+        list: {},
+        error: null,
+        isLoading: true
+      },
+      {
+        type: actions.GET_DESCRIPTION_SUCCESS,
+        data: null,
+        planet: 'Earth'
+      }
+    )
+  ).toEqual({
+    list: {},
+    error: 'Response format error',
+    isLoading: false
+  });
+});
+
 it('should handle GET_DESCRIPTION_ERROR', () => {
   expect(
     reducer(
