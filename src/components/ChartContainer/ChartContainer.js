@@ -35,7 +35,8 @@ const ChartContainer = function ChartContainer(props) {
 };
 
 ChartContainer.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  data: PropTypes.array.isRequired
 };
 
 export default withStyles(styles)(ChartContainer);
