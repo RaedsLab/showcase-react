@@ -8,6 +8,7 @@ import styles from './Description.css';
 // UI
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
+import Loading from '../Loading/Loading';
 
 const Description = function Description(props) {
   const { classes } = props;
@@ -27,16 +28,20 @@ const Description = function Description(props) {
     <Paper className={classes.description}>
       <Typography variant="caption" color="inherit">
         {props.planet !== '' ? (
-          <div>
-            {props.descriptions.list[props.planet]}
-            <a
-              href={`https://en.wikipedia.org/wiki/${props.planet}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              [Read more]
-            </a>
-          </div>
+          props.descriptions.isLoading ? (
+            <Loading />
+          ) : (
+            <div>
+              {props.descriptions.list[props.planet]}
+              <a
+                href={`https://en.wikipedia.org/wiki/${props.planet}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                [Read more]
+              </a>
+            </div>
+          )
         ) : (
           defaultMessage
         )}

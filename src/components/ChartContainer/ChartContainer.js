@@ -10,33 +10,39 @@ import { Chart as GoogleChart } from 'react-google-charts';
 import Paper from '@material-ui/core/Paper';
 
 import { formatNasaDataForChart } from '../../utils/formatter';
+import Loading from '../Loading/Loading';
 
 const ChartContainer = function ChartContainer(props) {
   const { classes } = props;
 
   return (
     <Paper className={classes.paper}>
-      <GoogleChart
-        chartType="Bar"
-        width="100%"
-        height="500px"
-        options={{
-          bars: 'horizontal',
-          axes: {
-            x: {
-              label: 'Estimated Diameter (km)'
+      {props.isLoading ? (
+        <Loading />
+      ) : (
+        <GoogleChart
+          chartType="Bar"
+          width="100%"
+          height="500px"
+          options={{
+            bars: 'horizontal',
+            axes: {
+              x: {
+                label: 'Estimated Diameter (km)'
+              }
             }
-          }
-        }}
-        data={formatNasaDataForChart(props.data)}
-      />
+          }}
+          data={formatNasaDataForChart(props.data)}
+        />
+      )}
     </Paper>
   );
 };
 
 ChartContainer.propTypes = {
   classes: PropTypes.object.isRequired,
-  data: PropTypes.array.isRequired
+  data: PropTypes.array.isRequired,
+  isLoading: PropTypes.bool.isRequired
 };
 
 export default withStyles(styles)(ChartContainer);

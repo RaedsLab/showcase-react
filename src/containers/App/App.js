@@ -31,6 +31,8 @@ import ChartContainer from '../../components/ChartContainer/ChartContainer';
 import ErrorDialog from '../../components/ErrorDialog/ErrorDialog';
 import Description from '../../components/Description/Description';
 
+import Typography from '@material-ui/core/Typography';
+
 export class App extends Component {
   state = {
     isNightMode: false,
@@ -80,6 +82,7 @@ export class App extends Component {
                   this.props.planets.list,
                   this.state.selectedOrbit
                 )}
+                isLoading={this.props.planets.isLoading}
               />
             </Grid>
           </Grid>
@@ -98,6 +101,15 @@ export class App extends Component {
             'Oups ! there seems to be a network error. Please try again later !'
           }
         />
+        <div className={classes.footer}>
+          <Typography variant="caption" color="inherit">
+            Made with{' '}
+            <span role="img" aria-label="love">
+              ❤️
+            </span>{' '}
+            in Nice, France, by <a href="https://raed.it/">Raed</a>.
+          </Typography>
+        </div>
       </MuiThemeProvider>
     );
   }
