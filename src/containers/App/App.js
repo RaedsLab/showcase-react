@@ -94,7 +94,6 @@ export class App extends Component {
             this.props.planets.error != null ||
             this.props.descriptions.error != null
           }
-          onClose={() => window.location.reload()}
           message={
             'Oups ! there seems to be a network error. Please try again later !'
           }
