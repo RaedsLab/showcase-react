@@ -9,7 +9,7 @@ describe('<OrbitSelector />', () => {
     const props = {
       selectedOrbit: '',
       orbits: ['Earth'],
-      onOrbitChange: jest.fn(x => console.log(x))
+      onOrbitChange: jest.fn(x => x)
     };
 
     const component = mount(<OrbitSelector {...props} />);
