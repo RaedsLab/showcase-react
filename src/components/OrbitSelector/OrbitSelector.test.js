@@ -1,16 +1,25 @@
 import React from 'react';
-import { createShallow } from '@material-ui/core/test-utils';
+import { createMount } from '@material-ui/core/test-utils';
 import OrbitSelector from './OrbitSelector';
+import MenuItem from '@material-ui/core/MenuItem';
 
 describe('<OrbitSelector />', () => {
   it('should not crash', () => {
-    const shallow = createShallow();
+    const mount = createMount();
     const props = {
       selectedOrbit: '',
-      orbits: [],
+      orbits: ['Earth'],
       onOrbitChange: jest.fn(x => console.log(x))
     };
 
-    const wrapper = shallow(<OrbitSelector {...props} />);
+    const component = mount(<OrbitSelector {...props} />);
+
+    component.find('[role="button"]').simulate('click');
+    component
+      .find(MenuItem)
+      .at(0)
+      .simulate('click');
+
+    expect(props.onOrbitChange).toHaveBeenCalled();
   });
 });
