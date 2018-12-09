@@ -12,7 +12,7 @@ import Typography from '@material-ui/core/Typography';
 const Description = function Description(props) {
   const { classes } = props;
   const defaultMessage = (
-    <div>
+    <div className="default-description">
       <p>
         NeoWs (Near Earth Object Web Service) is a RESTful web service for near
         earth Asteroid information. With NeoWs a user can: search for Asteroids
