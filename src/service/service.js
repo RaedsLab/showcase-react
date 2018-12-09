@@ -1,7 +1,19 @@
 import axios from 'axios';
 
 export function fecthNearEarthObjects() {
-  return get('https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=DEMO_KEY');
+  return get('https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=DEMO_KEY')
+    .then(data => data)
+    .catch(error => {
+      /**
+       * 429 TOO MANY REQUESTS
+       * https://httpstatuses.com/429
+       * If NASA server is not responding, use local version of data
+       *  */
+      if (error.response && error.response.status === 429) {
+        return get('/nasa.json');
+      }
+      return Promise.reject(error);
+    });
 }
 
 export function fetchPlanetInfo(planet) {

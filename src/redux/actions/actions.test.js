@@ -35,14 +35,15 @@ describe('actions > getPlanets', () => {
   });
 
   it('creates GET_PLANETS_ERROR in fetching data', () => {
-    mockAxios.get.mockImplementationOnce(() =>
-      Promise.reject({
-        error: 'message'
-      })
-    );
+    const error = {
+      response: {
+        status: 0
+      }
+    };
+    mockAxios.get.mockImplementationOnce(() => Promise.reject(error));
     const expectedActions = [
       { type: actions.GET_PLANETS_REQUEST },
-      { type: actions.GET_PLANETS_ERROR, error: { error: 'message' } }
+      { type: actions.GET_PLANETS_ERROR, error }
     ];
 
     const store = mockStore({
@@ -82,14 +83,15 @@ describe('actions > getDescription', () => {
     });
   });
   it('creates GET_DESCRIPTION_ERRROR in fetching data', () => {
-    mockAxios.get.mockImplementationOnce(() =>
-      Promise.reject({
-        error: 'message'
-      })
-    );
+    const error = {
+      response: {
+        status: 0
+      }
+    };
+    mockAxios.get.mockImplementationOnce(() => Promise.reject(error));
     const expectedActions = [
       { type: actions.GET_DESCRIPTION_REQUEST },
-      { type: actions.GET_DESCRIPTION_ERROR, error: { error: 'message' } }
+      { type: actions.GET_DESCRIPTION_ERROR, error }
     ];
 
     const store = mockStore({

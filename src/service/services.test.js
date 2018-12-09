@@ -16,6 +16,18 @@ describe('axios services', () => {
     expect(data).toBe(rawData);
   });
 
+  it('fetches mock data from NASA', async () => {
+    // setup
+    const error = {
+      response: {
+        status: 429
+      }
+    };
+    mockAxios.get.mockImplementationOnce(() => Promise.reject(error));
+    const data = await fecthNearEarthObjects();
+    expect(data).toBe(rawData);
+  });
+
   it('fetches data from Wikipedia', async () => {
     // setup
     mockAxios.get.mockImplementationOnce(() =>

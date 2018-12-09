@@ -1,5 +1,9 @@
 const styles = theme => ({
-  wrapper: {},
+  wrapper: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
   progress: {
     margin: theme.spacing.unit * 2
   }
