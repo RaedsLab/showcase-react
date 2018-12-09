@@ -92,7 +92,7 @@ export class App extends Component {
           </Grid>
 
           <Paper className={classes.description}>
-            {this.props.description}
+            {this.props.descriptions.list[this.state.selectedOrbit]}
           </Paper>
         </div>
 

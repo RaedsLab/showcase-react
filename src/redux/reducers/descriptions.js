@@ -21,14 +21,11 @@ export default (state = {}, action) => {
       };
 
     case GET_DESCRIPTION_SUCCESS:
-      debugger;
-
       if (action.data && action.data[2] && action.data[2][0]) {
         const description = action.data[2][0];
-        console.log(action.planet, description);
         return {
-          descriptions: { ...state.descriptions, [action.planet]: description },
-          error: 'Response format error',
+          list: { ...state.list, [action.planet]: description },
+          error: null,
           isLoading: false
         };
       }
