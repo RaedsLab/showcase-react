@@ -8,8 +8,7 @@ describe('<Description />', () => {
     const mount = createMount();
     const props = {
       planet: 'Earth',
-      descriptions: { list: { Earth: 'Something' } },
-      isLoading: false
+      descriptions: { list: { Earth: 'Something' } }
     };
 
     const wrapper = mount(<Description {...props} />);
@@ -20,8 +19,7 @@ describe('<Description />', () => {
     const mount = createMount();
     const props = {
       planet: '',
-      descriptions: { Earth: 'Something' },
-      isLoading: false
+      descriptions: { list: { Earth: 'Something' } }
     };
 
     const wrapper = mount(<Description {...props} />);
@@ -31,9 +29,8 @@ describe('<Description />', () => {
   it('should render with loading', () => {
     const mount = createMount();
     const props = {
-      planet: '',
-      descriptions: { Earth: 'Something' },
-      isLoading: true
+      planet: 'Earth',
+      descriptions: { list: { Earth: 'Something' }, isLoading: true }
     };
 
     const wrapper = mount(<Description {...props} />);
