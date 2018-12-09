@@ -1,7 +1,5 @@
 import React from 'react';
 
-import PropTypes from 'prop-types';
-
 // UI
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
@@ -27,10 +25,7 @@ const LeftMenu = function LeftMenu(props) {
 };
 
 LeftMenu.propTypes = {
-  classes: PropTypes.object.isRequired,
-  selectedOrbit: PropTypes.string.isRequired,
-  orbits: PropTypes.array.isRequired,
-  onOrbitChange: PropTypes.func.isRequired
+  ...OrbitSelector.propTypes
 };
 
 export default withStyles(styles)(LeftMenu);

@@ -10,20 +10,20 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Loading from '../Loading/Loading';
 
+const defaultMessage = (
+  <div className="default-description">
+    <p>
+      NeoWs (Near Earth Object Web Service) is a RESTful web service for near
+      earth Asteroid information. With NeoWs a user can: search for Asteroids
+      based on their closest approach date to Earth, lookup a specific Asteroid
+      with its NASA JPL small body id, as well as browse the overall data-set.
+    </p>
+    <p>Data-set: All the data is from the NASA JPL Asteroid team</p>
+  </div>
+);
+
 const Description = function Description(props) {
   const { classes } = props;
-  const defaultMessage = (
-    <div className="default-description">
-      <p>
-        NeoWs (Near Earth Object Web Service) is a RESTful web service for near
-        earth Asteroid information. With NeoWs a user can: search for Asteroids
-        based on their closest approach date to Earth, lookup a specific
-        Asteroid with its NASA JPL small body id, as well as browse the overall
-        data-set.
-      </p>
-      <p>Data-set: All the data is from the NASA JPL Asteroid team</p>
-    </div>
-  );
   return (
     <Paper className={classes.description}>
       <Typography variant="caption" color="inherit">
