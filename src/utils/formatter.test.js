@@ -64,7 +64,7 @@ it('extractListOfOrbits empty', () => {
   expect(empty[0].length).toBe(3);
 });
 
-it('extractListOfOrbits empty', () => {
-  const empty = formatNasaDataForChart([]);
-  expect(empty.length).toBe(1);
+it('extractListOfOrbits', () => {
+  const data = formatNasaDataForChart(getPlanetListFromNasaData(rawData));
+  expect(data.length).toBe(getPlanetListFromNasaData(rawData).length + 1);
 });

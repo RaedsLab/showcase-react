@@ -12,38 +12,32 @@ import Select from '@material-ui/core/Select';
 import { withStyles } from '@material-ui/core/styles';
 import styles from './OrbitSelector.css';
 
-class OrbitSelector extends Component {
-  handleChange = event => {
-    this.props.onOrbitChange(event.target.value);
-  };
-
-  render() {
-    const { classes } = this.props;
-    return (
-      <Paper className={classes.wrapper}>
-        <FormControl className={classes.formControl}>
-          <InputLabel htmlFor="age-simple">Orbiting body</InputLabel>
-          <Select
-            value={this.props.selectedOrbit}
-            className={classes.select}
-            onChange={this.handleChange}
-          >
-            <MenuItem value="">
-              <em>All</em>
-            </MenuItem>
-            {this.props.orbits.map(orbit => {
-              return (
-                <MenuItem key={orbit} value={orbit}>
-                  {orbit}
-                </MenuItem>
-              );
-            })}
-          </Select>
-        </FormControl>
-      </Paper>
-    );
-  }
-}
+const OrbitSelector = function OrbitSelector(props) {
+  const { classes } = props;
+  return (
+    <Paper className={classes.wrapper}>
+      <FormControl className={classes.formControl}>
+        <InputLabel htmlFor="age-simple">Orbiting body</InputLabel>
+        <Select
+          value={props.selectedOrbit}
+          className={classes.select}
+          onChange={() => props.onOrbitChange(event.target.value)}
+        >
+          <MenuItem value="">
+            <em>All</em>
+          </MenuItem>
+          {props.orbits.map(orbit => {
+            return (
+              <MenuItem key={orbit} value={orbit}>
+                {orbit}
+              </MenuItem>
+            );
+          })}
+        </Select>
+      </FormControl>
+    </Paper>
+  );
+};
 
 OrbitSelector.propTypes = {
   classes: PropTypes.object.isRequired,

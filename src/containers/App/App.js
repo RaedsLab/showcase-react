@@ -30,7 +30,7 @@ import {
   filterNasaDataByOrbit
 } from '../../utils/formatter';
 
-class App extends Component {
+export class App extends Component {
   state = {
     isNightMode: false,
     selectedOrbit: ''

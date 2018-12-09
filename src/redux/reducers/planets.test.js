@@ -4,7 +4,7 @@ import { getPlanetListFromNasaData } from '../../utils/formatter';
 import { rawData } from '../../__mocks__/rawData';
 
 describe('planet reducer', () => {
-  it('should handle ADD_TODO', () => {
+  it('should handle GET_PLANETS_REQUEST', () => {
     expect(
       reducer([], {
         type: actions.GET_PLANETS_REQUEST
@@ -14,7 +14,8 @@ describe('planet reducer', () => {
       error: null,
       isLoading: true
     });
-
+  });
+  it('should handle GET_PLANETS_SUCCESS', () => {
     expect(
       reducer(
         {
@@ -33,7 +34,8 @@ describe('planet reducer', () => {
       isLoading: false
     });
   });
-
+});
+it('should handle GET_PLANETS_ERROR', () => {
   expect(
     reducer(
       {
@@ -49,6 +51,24 @@ describe('planet reducer', () => {
   ).toEqual({
     list: [],
     error: 'message',
+    isLoading: false
+  });
+});
+it('should handle default action', () => {
+  expect(
+    reducer(
+      {
+        list: [],
+        error: null,
+        isLoading: false
+      },
+      {
+        type: 'SOMETHING'
+      }
+    )
+  ).toEqual({
+    list: [],
+    error: null,
     isLoading: false
   });
 });
