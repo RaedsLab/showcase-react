@@ -53,8 +53,9 @@ export class App extends Component {
     this.setState({
       selectedOrbit
     });
-
-    this.props.getDescription(selectedOrbit);
+    if (this.props.descriptions.list[selectedOrbit] == null) {
+      this.props.getDescription(selectedOrbit);
+    }
   };
 
   render() {

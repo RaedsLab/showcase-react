@@ -13,10 +13,8 @@ import { formatNasaDataForChart } from '../../utils/formatter';
 import Loading from '../Loading/Loading';
 
 const ChartContainer = function ChartContainer(props) {
-  const { classes } = props;
-
   return (
-    <Paper className={classes.paper}>
+    <Paper className={props.classes.paper}>
       {props.isLoading ? (
         <Loading />
       ) : (

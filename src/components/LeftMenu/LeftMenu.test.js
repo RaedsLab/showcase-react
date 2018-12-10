@@ -1,16 +1,18 @@
 import React from 'react';
-import { createShallow } from '@material-ui/core/test-utils';
+import { createMount } from '@material-ui/core/test-utils';
 import LeftMenu from './LeftMenu';
+import OrbitSelector from '../OrbitSelector/OrbitSelector';
 
 describe('<LeftMenu />', () => {
   it('should not crash', () => {
-    const shallow = createShallow();
+    const mount = createMount();
     const props = {
       selectedOrbit: '',
       orbits: [],
       onOrbitChange: jest.fn(x => console.log(x))
     };
 
-    const wrapper = shallow(<LeftMenu {...props} />);
+    const wrapper = mount(<LeftMenu {...props} />);
+    expect(wrapper.find(OrbitSelector)).toBeDefined();
   });
 });
