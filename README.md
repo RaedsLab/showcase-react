@@ -1,6 +1,5 @@
 [![Build Status](https://travis-ci.org/RaedsLab/showcase-react.svg?branch=master)](https://travis-ci.org/RaedsLab/showcase-react)
 [![Coverage Status](https://img.shields.io/coveralls/github/RaedsLab/showcase-react.svg)](https://coveralls.io/github/RaedsLab/showcase-react)
-[![Snyk](https://snyk.io/test/github/raedslab/showcase-react/badge.svg)](https://app.snyk.io/org/raedslab/project/0ab481db-4287-46a0-a981-1c6d8d3fa1ba)
 [![Maintainability](https://api.codeclimate.com/v1/badges/9feb90b6358f805ebbf5/maintainability)](https://codeclimate.com/github/RaedsLab/showcase-react/maintainability)
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badge/)
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.png?v=103)](https://opensource.org/licenses/mit-license.php)
