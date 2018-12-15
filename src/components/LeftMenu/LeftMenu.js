@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // UI
 import Paper from '@material-ui/core/Paper';
@@ -6,7 +7,6 @@ import Typography from '@material-ui/core/Typography';
 
 import { withStyles } from '@material-ui/core/styles';
 import styles from './LeftMenu.css';
-import OrbitSelector from '../OrbitSelector/OrbitSelector';
 
 const LeftMenu = function LeftMenu(props) {
   const { classes } = props;
@@ -15,17 +15,13 @@ const LeftMenu = function LeftMenu(props) {
       <Typography variant="h6" color="inherit" className={classes.title}>
         Select an orbit
       </Typography>
-      <OrbitSelector
-        selectedOrbit={props.selectedOrbit}
-        orbits={props.orbits}
-        onOrbitChange={props.onOrbitChange}
-      />
+      {props.children}
     </Paper>
   );
 };
 
 LeftMenu.propTypes = {
-  ...OrbitSelector.propTypes
+  classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(LeftMenu);

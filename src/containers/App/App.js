@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import PropTypes from 'prop-types';
 
 // Redux
@@ -9,6 +8,7 @@ import * as actions from '../../redux/actions/actions';
 // UI
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
+
 // style
 import styles from './App.css';
 
@@ -30,8 +30,12 @@ import LeftMenu from '../../components/LeftMenu/LeftMenu';
 import ChartContainer from '../../components/ChartContainer/ChartContainer';
 import ErrorDialog from '../../components/ErrorDialog/ErrorDialog';
 import Description from '../../components/Description/Description';
-
 import Typography from '@material-ui/core/Typography';
+
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import About from '../../components/About/About';
+import NotFound from '../../components/NotFound/NotFound';
+import OrbitSelector from '../../components/OrbitSelector/OrbitSelector';
 
 export class App extends Component {
   state = {
@@ -53,65 +57,99 @@ export class App extends Component {
     this.setState({
       selectedOrbit
     });
-    if (this.props.descriptions.list[selectedOrbit] == null) {
+    if (
+      selectedOrbit !== '' &&
+      this.props.descriptions.list[selectedOrbit] == null
+    ) {
       this.props.getDescription(selectedOrbit);
     }
   };
 
+  footer = props => (
+    <div className={props.classes.footer}>
+      <Typography variant="caption" color="inherit">
+        Made with{' '}
+        <span role="img" aria-label="love">
+          ❤️
+        </span>{' '}
+        in Nice, France, by <a href="https://raed.it/">Raed</a>.
+      </Typography>
+    </div>
+  );
+
   render() {
     const { classes } = this.props;
     const theme = this.state.isNightMode ? themeLDark : themeLight;
-    return (
-      <MuiThemeProvider theme={theme}>
-        <CssBaseline />
-        <Header
-          isNightMode={this.state.isNightMode}
-          onNightModeToggle={this.onNightModeToggle}
-        />
-        <div className={classes.wrapper}>
-          <Grid container spacing={24}>
-            <Grid item xs={6} sm={3}>
-              <LeftMenu
-                selectedOrbit={this.state.selectedOrbit}
-                orbits={extractListOfOrbits(this.props.planets.list)}
-                onOrbitChange={this.onOrbitChange}
-              />
-            </Grid>
-            <Grid item xs={12} sm={9}>
-              <ChartContainer
-                data={filterNasaDataByOrbit(
-                  this.props.planets.list,
-                  this.state.selectedOrbit
-                )}
-                isLoading={this.props.planets.isLoading}
-              />
-            </Grid>
-          </Grid>
-          <Description
-            planet={this.state.selectedOrbit}
-            descriptions={this.props.descriptions}
-          />
-        </div>
 
-        <ErrorDialog
-          isOpen={
-            this.props.planets.error != null ||
-            this.props.descriptions.error != null
-          }
-          message={
-            'Oups ! there seems to be a network error. Please try again later !'
-          }
-        />
-        <div className={classes.footer}>
-          <Typography variant="caption" color="inherit">
-            Made with{' '}
-            <span role="img" aria-label="love">
-              ❤️
-            </span>{' '}
-            in Nice, France, by <a href="https://raed.it/">Raed</a>.
-          </Typography>
-        </div>
-      </MuiThemeProvider>
+    return (
+      <Router>
+        <MuiThemeProvider theme={theme}>
+          <CssBaseline />
+
+          <Header
+            isNightMode={this.state.isNightMode}
+            onNightModeToggle={this.onNightModeToggle}
+          />
+          <Switch>
+            <Route
+              exact
+              strict
+              path="/"
+              component={() => (
+                <div className={classes.wrapper}>
+                  <Grid container spacing={24}>
+                    <Grid item xs={6} sm={3}>
+                      <LeftMenu>
+                        <OrbitSelector
+                          selectedOrbit={this.state.selectedOrbit}
+                          orbits={extractListOfOrbits(this.props.planets.list)}
+                          onOrbitChange={this.onOrbitChange}
+                        />
+                      </LeftMenu>
+                    </Grid>
+                    <Grid item xs={12} sm={9}>
+                      <ChartContainer
+                        data={filterNasaDataByOrbit(
+                          this.props.planets.list,
+                          this.state.selectedOrbit
+                        )}
+                        isLoading={this.props.planets.isLoading}
+                      />
+                    </Grid>
+                  </Grid>
+                  <Description
+                    planet={this.state.selectedOrbit}
+                    descriptions={this.props.descriptions}
+                  />
+                </div>
+              )}
+            />
+            <Route
+              exact
+              strict
+              path="/about/"
+              component={() => (
+                <div className={classes.wrapper}>
+                  <About />
+                </div>
+              )}
+            />
+            <Route component={NotFound} />
+          </Switch>
+
+          <this.footer classes={this.props.classes} />
+          {/* declarative error dialog only shown when network error */}
+          <ErrorDialog
+            isOpen={
+              this.props.planets.error != null ||
+              this.props.descriptions.error != null
+            }
+            message={`Oups ! there seems to be a network error. Please try again later ! ${
+              this.props.planets.error
+            } ${this.props.descriptions.error}`}
+          />
+        </MuiThemeProvider>
+      </Router>
     );
   }
 }

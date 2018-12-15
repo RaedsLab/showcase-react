@@ -5,6 +5,9 @@ const styles = theme => ({
   },
   title: {
     flexGrow: 1
+  },
+  link: {
+    textDecoration: 'none'
   }
 });
 

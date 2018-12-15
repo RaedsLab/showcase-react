@@ -11,6 +11,9 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
+import Button from '@material-ui/core/Button';
+// router
+import { Link } from 'react-router-dom';
 
 const Header = function Header(props) {
   const { classes } = props;
@@ -20,8 +23,19 @@ const Header = function Header(props) {
       <AppBar position="static" color={'primary'}>
         <Toolbar>
           <Typography variant="h6" color="inherit" className={classes.title}>
-            Showcase
+            <Button size="large" component={Link} to="/">
+              Showcase
+            </Button>
           </Typography>
+          <Button
+            size="small"
+            component={Link}
+            to="/about/"
+            color="inherit"
+            className={(classes.size = 'small')}
+          >
+            About
+          </Button>
           <FormControlLabel
             control={
               <Switch
