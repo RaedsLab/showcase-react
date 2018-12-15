@@ -9,7 +9,7 @@ import styles from './About.css';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
-const About = function ChartContainer(props) {
+const About = function(props) {
   return (
     <Paper className={props.classes.paper}>
       <div className={props.classes.content}>
