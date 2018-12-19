@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import styles from './LeftMenu.css';
 
-const LeftMenu = function LeftMenu(props) {
+const LeftMenu = function(props) {
   const { classes } = props;
   return (
     <Paper className={classes.wrapper}>

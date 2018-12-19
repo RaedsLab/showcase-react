@@ -11,7 +11,7 @@ import Select from '@material-ui/core/Select';
 import { withStyles } from '@material-ui/core/styles';
 import styles from './OrbitSelector.css';
 
-const OrbitSelector = function OrbitSelector(props) {
+const OrbitSelector = function(props) {
   const { classes } = props;
   return (
     <Paper className={classes.wrapper}>

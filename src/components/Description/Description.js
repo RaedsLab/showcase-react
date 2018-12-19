@@ -22,7 +22,7 @@ const defaultMessage = (
   </div>
 );
 
-const Description = function Description(props) {
+const Description = function(props) {
   const { classes } = props;
   return (
     <Paper className={classes.description}>

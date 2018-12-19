@@ -12,7 +12,7 @@ import Paper from '@material-ui/core/Paper';
 import { formatNasaDataForChart } from '../../utils/formatter';
 import Loading from '../Loading/Loading';
 
-const ChartContainer = function ChartContainer(props) {
+const ChartContainer = function (props) {
   return (
     <Paper className={props.classes.paper}>
       {props.isLoading ? (

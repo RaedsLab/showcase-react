@@ -16,7 +16,7 @@ function reload() {
   window.location.reload();
 }
 
-const ErrorDialog = function ErrorDialog(props) {
+const ErrorDialog = function(props) {
   return (
     <Dialog
       open={props.isOpen}

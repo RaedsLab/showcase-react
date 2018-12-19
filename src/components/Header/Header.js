@@ -15,7 +15,7 @@ import Button from '@material-ui/core/Button';
 // router
 import { Link } from 'react-router-dom';
 
-const Header = function Header(props) {
+const Header = function(props) {
   const { classes } = props;
 
   return (
