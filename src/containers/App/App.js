@@ -5,11 +5,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as actions from '../../redux/actions/actions';
 
-// UI
-import { withStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-
 // style
+import { withStyles } from '@material-ui/core/styles';
 import styles from './App.css';
 
 // utils
@@ -18,6 +15,9 @@ import {
   filterNasaDataByOrbit
 } from '../../utils/formatter';
 
+// router
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
 // theme
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -25,14 +25,15 @@ import themeLight from '../../themes/light';
 import themeLDark from '../../themes/night';
 
 // UI
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+
+// components
 import Header from '../../components/Header/Header';
 import LeftMenu from '../../components/LeftMenu/LeftMenu';
 import ChartContainer from '../../components/ChartContainer/ChartContainer';
 import ErrorDialog from '../../components/ErrorDialog/ErrorDialog';
 import Description from '../../components/Description/Description';
-import Typography from '@material-ui/core/Typography';
-
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import About from '../../components/About/About';
 import NotFound from '../../components/NotFound/NotFound';
 import OrbitSelector from '../../components/OrbitSelector/OrbitSelector';
@@ -124,16 +125,7 @@ export class App extends Component {
                 </div>
               )}
             />
-            <Route
-              exact
-              strict
-              path="/about/"
-              component={() => (
-                <div className={classes.wrapper}>
-                  <About />
-                </div>
-              )}
-            />
+            <Route exact strict path="/about/" component={About} />
             <Route component={NotFound} />
           </Switch>
 

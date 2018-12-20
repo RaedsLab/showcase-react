@@ -30,7 +30,6 @@ export default (state = {}, action) => {
         };
       }
       // error
-      console.error('Response format error:', action.data);
       return {
         ...state,
         error: 'Response format error',
