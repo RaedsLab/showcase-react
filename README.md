@@ -1,3 +1,4 @@
+[![Greenkeeper badge](https://badges.greenkeeper.io/RaedsLab/showcase-react.svg)](https://greenkeeper.io/)
 [![Build Status](https://travis-ci.org/RaedsLab/showcase-react.svg?branch=master)](https://travis-ci.org/RaedsLab/showcase-react)
 [![Coverage Status](https://img.shields.io/coveralls/github/RaedsLab/showcase-react.svg)](https://coveralls.io/github/RaedsLab/showcase-react)
 [![Maintainability](https://api.codeclimate.com/v1/badges/9feb90b6358f805ebbf5/maintainability)](https://codeclimate.com/github/RaedsLab/showcase-react/maintainability)
