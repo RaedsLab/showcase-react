@@ -1,3 +1,4 @@
+[![Greenkeeper badge](https://badges.greenkeeper.io/RaedsLab/showcase-react.svg)](https://greenkeeper.io/)
 [![Build Status](https://travis-ci.org/RaedsLab/showcase-react.svg?branch=master)](https://travis-ci.org/RaedsLab/showcase-react)
 [![Coverage Status](https://img.shields.io/coveralls/github/RaedsLab/showcase-react.svg)](https://coveralls.io/github/RaedsLab/showcase-react)
 [![Maintainability](https://api.codeclimate.com/v1/badges/9feb90b6358f805ebbf5/maintainability)](https://codeclimate.com/github/RaedsLab/showcase-react/maintainability)
@@ -14,4 +15,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 If you see any big blunder in the way the code or tests are written, please comment or tweet me [@Raed667](https://twitter.com/raed667).
 
 [![forthebadge](https://forthebadge.com/images/badges/built-by-hipsters.svg)](https://forthebadge.com)
-[![forthebadge](https://forthebadge.com/images/badges/uses-badges.svg)](https://forthebadge.com) [![Greenkeeper badge](https://badges.greenkeeper.io/RaedsLab/showcase-react.svg)](https://greenkeeper.io/)
+[![forthebadge](https://forthebadge.com/images/badges/uses-badges.svg)](https://forthebadge.com)
