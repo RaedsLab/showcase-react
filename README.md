@@ -14,4 +14,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 If you see any big blunder in the way the code or tests are written, please comment or tweet me [@Raed667](https://twitter.com/raed667).
 
 [![forthebadge](https://forthebadge.com/images/badges/built-by-hipsters.svg)](https://forthebadge.com)
-[![forthebadge](https://forthebadge.com/images/badges/uses-badges.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/uses-badges.svg)](https://forthebadge.com) [![Greenkeeper badge](https://badges.greenkeeper.io/RaedsLab/showcase-react.svg)](https://greenkeeper.io/)
