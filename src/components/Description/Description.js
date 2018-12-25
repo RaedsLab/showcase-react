@@ -31,7 +31,7 @@ const Description = function(props) {
           props.descriptions.isLoading ? (
             <Loading />
           ) : (
-            <div>
+            <div id="description">
               {props.descriptions.list[props.planet]}
               <a
                 href={`https://en.wikipedia.org/wiki/${props.planet}`}

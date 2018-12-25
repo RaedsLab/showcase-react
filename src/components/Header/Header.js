@@ -39,6 +39,7 @@ const Header = function(props) {
           <FormControlLabel
             control={
               <Switch
+                id="switch-night-mode"
                 color="default"
                 checked={props.isNightMode}
                 onChange={event =>

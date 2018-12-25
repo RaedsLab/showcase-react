@@ -18,6 +18,7 @@ const OrbitSelector = function(props) {
       <FormControl className={classes.formControl}>
         <InputLabel htmlFor="age-simple">Orbiting body</InputLabel>
         <Select
+          id="select-orbit"
           value={props.selectedOrbit}
           className={classes.select}
           onChange={event => props.onOrbitChange(event.target.value)}
