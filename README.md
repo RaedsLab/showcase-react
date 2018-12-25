@@ -1,6 +1,7 @@
 [![Greenkeeper badge](https://badges.greenkeeper.io/RaedsLab/showcase-react.svg)](https://greenkeeper.io/)
 [![Build Status](https://travis-ci.org/RaedsLab/showcase-react.svg?branch=master)](https://travis-ci.org/RaedsLab/showcase-react)
 [![Coverage Status](https://img.shields.io/coveralls/github/RaedsLab/showcase-react.svg)](https://coveralls.io/github/RaedsLab/showcase-react)
+[![Cypress.io tests](https://img.shields.io/badge/cypress.io-tests-green.svg?style=flat-square)](https://dashboard.cypress.io/#/projects/9oq2rc/runs)
 [![Maintainability](https://api.codeclimate.com/v1/badges/9feb90b6358f805ebbf5/maintainability)](https://codeclimate.com/github/RaedsLab/showcase-react/maintainability)
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badge/)
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.png?v=103)](https://opensource.org/licenses/mit-license.php)
