@@ -5,6 +5,8 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/9feb90b6358f805ebbf5/maintainability)](https://codeclimate.com/github/RaedsLab/showcase-react/maintainability)
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badge/)
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.png?v=103)](https://opensource.org/licenses/mit-license.php)
+[![HitCount](http://hits.dwyl.com/raedslab/showcase-react.svg)](http://hits.dwyl.com/raedslab/showcase-react)
+
 
 
 # Showcase React 
