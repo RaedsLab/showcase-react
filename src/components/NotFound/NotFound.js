@@ -8,7 +8,7 @@ import styles from './NotFound.css';
 // UI
 import Paper from '@material-ui/core/Paper';
 
-const NotFound = function ChartContainer(props) {
+const NotFound = function (props) {
   return <Paper className={props.classes.paper}>404 not found</Paper>;
 };
 

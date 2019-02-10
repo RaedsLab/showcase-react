@@ -38,6 +38,10 @@ import About from '../../components/About/About';
 import NotFound from '../../components/NotFound/NotFound';
 import OrbitSelector from '../../components/OrbitSelector/OrbitSelector';
 
+// easter eggs
+import useKonamiCode from '../../utils/use-konami-code';
+import EasterEgg from '../../components/EasterEgg/EasterEgg';
+
 export class App extends Component {
   state = {
     isNightMode: false,
@@ -66,17 +70,21 @@ export class App extends Component {
     }
   };
 
-  footer = props => (
-    <div className={props.classes.footer}>
-      <Typography variant="caption" color="inherit">
-        Made with{' '}
-        <span role="img" aria-label="love">
-          ❤️
-        </span>{' '}
-        in Nice, France, by <a href="https://raed.it/">Raed</a>.
-      </Typography>
-    </div>
-  );
+  footer = props => {
+    const isKonamiCode = useKonamiCode();
+    return (
+      <div className={props.classes.footer}>
+        <Typography variant="caption" color="inherit">
+          Made with{' '}
+          <span role="img" aria-label="love">
+            ❤️
+          </span>{' '}
+          in Nice, France, by <a href="https://raed.it/">Raed</a>.
+          {isKonamiCode && <EasterEgg />}
+        </Typography>
+      </div>
+    );
+  };
 
   render() {
     const { classes } = this.props;
