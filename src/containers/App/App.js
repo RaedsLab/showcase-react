@@ -26,7 +26,6 @@ import themeLDark from '../../themes/night';
 
 // UI
 import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
 
 // components
 import Header from '../../components/Header/Header';
@@ -35,6 +34,7 @@ import ChartContainer from '../../components/ChartContainer/ChartContainer';
 import ErrorDialog from '../../components/ErrorDialog/ErrorDialog';
 import Description from '../../components/Description/Description';
 import About from '../../components/About/About';
+import Footer from '../../components/Footer/Footer';
 import NotFound from '../../components/NotFound/NotFound';
 import OrbitSelector from '../../components/OrbitSelector/OrbitSelector';
 
@@ -42,27 +42,12 @@ import OrbitSelector from '../../components/OrbitSelector/OrbitSelector';
 import useKonamiCode from '../../utils/use-konami-code';
 import EasterEgg from '../../components/EasterEgg/EasterEgg';
 
-const footer = props => {
-  const isKonamiCode = useKonamiCode();
-  return (
-    <div className={props.classes.footer}>
-      <Typography variant="caption" color="inherit">
-        Made with{' '}
-        <span role="img" aria-label="love">
-          ❤️
-        </span>{' '}
-        in Nice, France, by <a href="https://raed.it/">Raed</a>.
-        {isKonamiCode && <EasterEgg />}
-      </Typography>
-    </div>
-  );
-};
-
 export function App(props) {
   const [isFirstLoad, setIsFirstLoad] = useState(true);
 
   const [isNightMode, setIsNightMode] = useState(false);
   const [selectedOrbit, setSelectedOrbit] = useState('');
+  const isKonamiCode = useKonamiCode();
 
   useEffect(() => {
     if (isFirstLoad) {
@@ -88,7 +73,6 @@ export function App(props) {
     <Router>
       <MuiThemeProvider theme={theme}>
         <CssBaseline />
-
         <Header isNightMode={isNightMode} onNightModeToggle={setIsNightMode} />
         <Switch>
           <Route
@@ -128,7 +112,7 @@ export function App(props) {
           <Route component={NotFound} />
         </Switch>
 
-        <footer classes={props.classes} />
+        <Footer classes={props.classes} />
         {/* declarative error dialog only shown when network error */}
         <ErrorDialog
           isOpen={
@@ -138,6 +122,7 @@ export function App(props) {
             props.planets.error
           } ${props.descriptions.error}`}
         />
+        {isKonamiCode && <EasterEgg />}
       </MuiThemeProvider>
     </Router>
   );
