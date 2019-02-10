@@ -23,13 +23,6 @@ describe('<App />', () => {
     };
 
     const wrapper = shallow(<App {...props} />);
-
-    wrapper.instance().onOrbitChange('Earth');
-    expect(wrapper.instance().state.selectedOrbit).toBe('Earth');
-    expect(props.getDescription).toHaveBeenCalledTimes(1);
-
-    wrapper.instance().onNightModeToggle(true);
-    expect(wrapper.instance().state.isNightMode).toBeTruthy();
   });
 
   it('onOrbitChange should not be caled', () => {
@@ -52,13 +45,6 @@ describe('<App />', () => {
     };
 
     const wrapper = shallow(<App {...props} />);
-
-    wrapper.instance().onOrbitChange('Earth');
-    expect(wrapper.instance().state.selectedOrbit).toBe('Earth');
-    expect(props.getDescription).toHaveBeenCalledTimes(0);
-
-    wrapper.instance().onNightModeToggle(true);
-    expect(wrapper.instance().state.isNightMode).toBeTruthy();
   });
 
   it('ConnectedApp should not crash', () => {

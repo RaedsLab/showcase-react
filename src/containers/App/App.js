@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 // Redux
@@ -42,116 +42,105 @@ import OrbitSelector from '../../components/OrbitSelector/OrbitSelector';
 import useKonamiCode from '../../utils/use-konami-code';
 import EasterEgg from '../../components/EasterEgg/EasterEgg';
 
-export class App extends Component {
-  state = {
-    isNightMode: false,
-    selectedOrbit: ''
-  };
+const footer = props => {
+  const isKonamiCode = useKonamiCode();
+  return (
+    <div className={props.classes.footer}>
+      <Typography variant="caption" color="inherit">
+        Made with{' '}
+        <span role="img" aria-label="love">
+          ❤️
+        </span>{' '}
+        in Nice, France, by <a href="https://raed.it/">Raed</a>.
+        {isKonamiCode && <EasterEgg />}
+      </Typography>
+    </div>
+  );
+};
 
-  componentDidMount() {
-    this.props.getPlanets();
-  }
+export function App(props) {
+  const [isFirstLoad, setIsFirstLoad] = useState(true);
 
-  onNightModeToggle = isNightMode => {
-    this.setState({
-      isNightMode
-    });
-  };
+  const [isNightMode, setIsNightMode] = useState(false);
+  const [selectedOrbit, setSelectedOrbit] = useState('');
 
-  onOrbitChange = selectedOrbit => {
-    this.setState({
-      selectedOrbit
-    });
+  useEffect(() => {
+    if (isFirstLoad) {
+      props.getPlanets();
+    }
+    setIsFirstLoad(false);
+  });
+
+  const onOrbitChange = (props, selectedOrbit) => {
+    setSelectedOrbit(selectedOrbit);
+
     if (
       selectedOrbit !== '' &&
-      this.props.descriptions.list[selectedOrbit] == null
+      props.descriptions.list[selectedOrbit] == null
     ) {
-      this.props.getDescription(selectedOrbit);
+      props.getDescription(selectedOrbit);
     }
   };
 
-  footer = props => {
-    const isKonamiCode = useKonamiCode();
-    return (
-      <div className={props.classes.footer}>
-        <Typography variant="caption" color="inherit">
-          Made with{' '}
-          <span role="img" aria-label="love">
-            ❤️
-          </span>{' '}
-          in Nice, France, by <a href="https://raed.it/">Raed</a>.
-          {isKonamiCode && <EasterEgg />}
-        </Typography>
-      </div>
-    );
-  };
+  const theme = isNightMode ? themeLDark : themeLight;
 
-  render() {
-    const { classes } = this.props;
-    const theme = this.state.isNightMode ? themeLDark : themeLight;
+  return (
+    <Router>
+      <MuiThemeProvider theme={theme}>
+        <CssBaseline />
 
-    return (
-      <Router>
-        <MuiThemeProvider theme={theme}>
-          <CssBaseline />
-
-          <Header
-            isNightMode={this.state.isNightMode}
-            onNightModeToggle={this.onNightModeToggle}
-          />
-          <Switch>
-            <Route
-              exact
-              strict
-              path="/"
-              component={() => (
-                <div className={classes.wrapper}>
-                  <Grid container spacing={24}>
-                    <Grid item xs={6} sm={3}>
-                      <LeftMenu>
-                        <OrbitSelector
-                          selectedOrbit={this.state.selectedOrbit}
-                          orbits={extractListOfOrbits(this.props.planets.list)}
-                          onOrbitChange={this.onOrbitChange}
-                        />
-                      </LeftMenu>
-                    </Grid>
-                    <Grid item xs={12} sm={9}>
-                      <ChartContainer
-                        data={filterNasaDataByOrbit(
-                          this.props.planets.list,
-                          this.state.selectedOrbit
-                        )}
-                        isLoading={this.props.planets.isLoading}
+        <Header isNightMode={isNightMode} onNightModeToggle={setIsNightMode} />
+        <Switch>
+          <Route
+            exact
+            strict
+            path="/"
+            component={() => (
+              <div className={props.classes.wrapper}>
+                <Grid container spacing={24}>
+                  <Grid item xs={6} sm={3}>
+                    <LeftMenu>
+                      <OrbitSelector
+                        selectedOrbit={selectedOrbit}
+                        orbits={extractListOfOrbits(props.planets.list)}
+                        onOrbitChange={orbit => onOrbitChange(props, orbit)}
                       />
-                    </Grid>
+                    </LeftMenu>
                   </Grid>
-                  <Description
-                    planet={this.state.selectedOrbit}
-                    descriptions={this.props.descriptions}
-                  />
-                </div>
-              )}
-            />
-            <Route exact strict path="/about/" component={About} />
-            <Route component={NotFound} />
-          </Switch>
-
-          <this.footer classes={this.props.classes} />
-          {/* declarative error dialog only shown when network error */}
-          <ErrorDialog
-            isOpen={
-              this.props.planets.error != null ||
-              this.props.descriptions.error != null
-            }
-            message={`Oups ! there seems to be a network error. Please try again later ! ${
-              this.props.planets.error
-            } ${this.props.descriptions.error}`}
+                  <Grid item xs={12} sm={9}>
+                    <ChartContainer
+                      data={filterNasaDataByOrbit(
+                        props.planets.list,
+                        selectedOrbit
+                      )}
+                      isLoading={props.planets.isLoading}
+                    />
+                  </Grid>
+                </Grid>
+                <Description
+                  planet={selectedOrbit}
+                  descriptions={props.descriptions}
+                />
+              </div>
+            )}
           />
-        </MuiThemeProvider>
-      </Router>
-    );
-  }
+          <Route exact strict path="/about/" component={About} />
+          <Route component={NotFound} />
+        </Switch>
+
+        <footer classes={props.classes} />
+        {/* declarative error dialog only shown when network error */}
+        <ErrorDialog
+          isOpen={
+            props.planets.error != null || props.descriptions.error != null
+          }
+          message={`Oups ! there seems to be a network error. Please try again later ! ${
+            props.planets.error
+          } ${props.descriptions.error}`}
+        />
+      </MuiThemeProvider>
+    </Router>
+  );
 }
 
 /**
