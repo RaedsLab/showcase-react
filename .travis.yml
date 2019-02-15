@@ -9,5 +9,5 @@ script:
   - npm run build
 #  - npm run start &
 #  - cypress run --record --key $cypress_key
-#after_script: # Upload coverage reports
-#  - COVERALLS_REPO_TOKEN=$coveralls_repo_token npm run coveralls
+after_script: # Upload coverage reports
+  - COVERALLS_REPO_TOKEN=$coveralls_repo_token npm run coveralls
