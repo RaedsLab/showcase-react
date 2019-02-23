@@ -1,5 +1,4 @@
 [![Greenkeeper badge](https://badges.greenkeeper.io/RaedsLab/showcase-react.svg)](https://greenkeeper.io/)
-[![Build Status](https://travis-ci.org/RaedsLab/showcase-react.svg?branch=master)](https://travis-ci.org/RaedsLab/showcase-react)
 [![CircleCI](https://circleci.com/gh/RaedsLab/showcase-react/tree/master.svg?style=svg)](https://circleci.com/gh/RaedsLab/showcase-react/tree/master)
 [![Coverage Status](https://img.shields.io/coveralls/github/RaedsLab/showcase-react.svg)](https://coveralls.io/github/RaedsLab/showcase-react)
 [![Cypress.io tests](https://img.shields.io/badge/cypress.io-tests-green.svg?style=flat-square)](https://dashboard.cypress.io/#/projects/9oq2rc/runs)
