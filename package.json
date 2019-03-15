@@ -11,7 +11,7 @@
     "react-google-charts": "^3.0.10",
     "react-redux": "^6.0.0",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.1",
+    "react-scripts": "3.0.0-next.b0cbf2ca",
     "react-select": "2.2.0",
     "redux": "^4.0.1",
     "redux-react-hook": "^3.1.0",
@@ -28,12 +28,18 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "devDependencies": {
     "@types/enzyme": "^3.1.17",
     "@types/jest": "^24.0.0",

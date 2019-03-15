@@ -47,7 +47,7 @@ export function App(props) {
 
   const [isNightMode, setIsNightMode] = useState(false);
   const [selectedOrbit, setSelectedOrbit] = useState('');
-  const isKonamiCode = useKonamiCode();
+  const [isKonamiCode] = useKonamiCode();
 
   useEffect(() => {
     if (isFirstLoad) {
