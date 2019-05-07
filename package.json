@@ -15,7 +15,8 @@
     "react-select": "^2.4.1",
     "redux": "^4.0.1",
     "redux-react-hook": "^3.2.0",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "snyk": "^1.161.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -23,7 +24,9 @@
     "test": "react-scripts test",
     "coverage": "react-scripts test --coverage",
     "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -47,5 +50,6 @@
     "redux-devtools-extension": "^2.13.8",
     "redux-mock-store": "^1.5.3",
     "typescript": "^3.3.3333"
-  }
+  },
+  "snyk": true
 }
