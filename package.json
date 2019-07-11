@@ -16,7 +16,7 @@
     "redux": "^4.0.1",
     "redux-react-hook": "^3.2.0",
     "redux-thunk": "^2.3.0",
-    "snyk": "^1.189.0"
+    "snyk": "^1.192.6"
   },
   "scripts": {
     "start": "react-scripts start",
