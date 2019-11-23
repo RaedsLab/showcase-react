@@ -1,9 +1,9 @@
-import ConnectedApp, { App } from './App';
-import React from 'react';
-import { createMount, createShallow } from '@material-ui/core/test-utils';
+import ConnectedApp, { App } from "./App";
+import React from "react";
+import { createMount, createShallow } from "@material-ui/core/test-utils";
 
-describe('<App />', () => {
-  it('should not crash', () => {
+describe("<App />", () => {
+  it("should not crash", () => {
     const shallow = createMount();
     const props = {
       classes: {},
@@ -25,7 +25,7 @@ describe('<App />', () => {
     const wrapper = shallow(<App {...props} />);
   });
 
-  it('onOrbitChange should not be caled', () => {
+  it("onOrbitChange should not be caled", () => {
     const shallow = createMount();
     const props = {
       classes: {},
@@ -35,7 +35,7 @@ describe('<App />', () => {
         isLoading: false
       },
       descriptions: {
-        list: { Earth: 'something' }, // hashmap
+        list: { Earth: "something" }, // hashmap
         error: null,
         isLoading: false
       },
@@ -47,7 +47,7 @@ describe('<App />', () => {
     const wrapper = shallow(<App {...props} />);
   });
 
-  it('ConnectedApp should not crash', () => {
+  it("ConnectedApp should not crash", () => {
     const shallow = createShallow();
     const props = {
       classes: {},

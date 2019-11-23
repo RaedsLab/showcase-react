@@ -1,19 +1,19 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
-export default function useKonamiCode(targetKey) {
+const useKonamiCode = targetKey => {
   // State for keeping track of whether key is pressed
   const [konamiCode, setIsKonami] = useState(false);
   const codes = [
-    'ArrowUp',
-    'ArrowUp',
-    'ArrowDown',
-    'ArrowDown',
-    'ArrowLeft',
-    'ArrowRight',
-    'ArrowLeft',
-    'ArrowRight',
-    'b',
-    'a'
+    "ArrowUp",
+    "ArrowUp",
+    "ArrowDown",
+    "ArrowDown",
+    "ArrowLeft",
+    "ArrowRight",
+    "ArrowLeft",
+    "ArrowRight",
+    "b",
+    "a"
   ];
   let index = 0;
 
@@ -35,11 +35,15 @@ export default function useKonamiCode(targetKey) {
 
   // Add event listeners
   useEffect(() => {
-    window.addEventListener('keyup', onKeyUp);
+    window.addEventListener("keyup", onKeyUp);
     return () => {
-      window.removeEventListener('keyup', onKeyUp);
+      window.removeEventListener("keyup", onKeyUp);
     };
-  }, []); // Empty array ensures that effect is only run on mount and unmount
+    // Empty array ensures that effect is only run on mount and unmount
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return konamiCode;
-}
+};
+
+export default useKonamiCode;

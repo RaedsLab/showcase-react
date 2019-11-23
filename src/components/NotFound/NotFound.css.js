@@ -1,7 +1,7 @@
 const styles = theme => ({
   paper: {
-    padding: theme.spacing.unit * 2,
-    textAlign: 'center'
+    padding: theme.spacing(2),
+    textAlign: "center"
   }
 });
 

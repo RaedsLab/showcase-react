@@ -1,15 +1,15 @@
-import React from 'react';
+import React from "react";
 
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-import { withStyles } from '@material-ui/core/styles';
-import styles from './About.css';
+import { withStyles } from "@material-ui/core/styles";
+import styles from "./About.css";
 
 // UI
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
+import Paper from "@material-ui/core/Paper";
+import Typography from "@material-ui/core/Typography";
 
-const About = function(props) {
+const About = props => {
   return (
     <div className="wrapper">
       <Paper className={props.classes.paper}>
@@ -18,23 +18,14 @@ const About = function(props) {
             Showcase React
           </Typography>
           <Typography variant="body1" color="inherit">
-            This is a project I use and maintain to learn more about React and
-            Redux.
+            A simple project that uses simple techniques to show how React,
+            Redux and data-fetching work.
           </Typography>
           <Typography variant="body1" color="inherit">
-            This project was bootstrapped with Create React App. If you see any
-            big blunder in the way the code or tests are written, please comment
-            or tweet me{' '}
-            <a
-              href="https://twitter.com/raed667"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              @Raed667
-            </a>
+            It is based on `create-react-app`.
           </Typography>
           <Typography variant="body1" color="inherit">
-            You can find this project on Github{' '}
+            You can find this project on Github, PRs are welcome{" "}
             <a
               href="https://github.com/RaedsLab/showcase-react"
               target="_blank"

@@ -4,12 +4,12 @@ const styles = theme => ({
     flexGrow: 1
   },
   root: {
-    display: 'flex',
-    flexWrap: 'wrap'
+    display: "flex",
+    flexWrap: "wrap"
   },
   formControl: {
-    margin: theme.spacing.unit,
-    width: '90%'
+    margin: theme.spacing(1),
+    width: "90%"
   }
 });
 

@@ -1,8 +1,7 @@
 const styles = theme => ({
-  paper: {
+  footer: {
     padding: theme.spacing(2),
-    textAlign: "center",
-    color: theme.palette.text.secondary
+    textAlign: "center"
   }
 });
 

@@ -1,8 +1,8 @@
 const styles = theme => ({
   wrapper: {
     minHeight: 530,
-    padding: theme.spacing.unit * 2,
-    textAlign: 'center',
+    padding: theme.spacing(2),
+    textAlign: "center",
     color: theme.palette.text.secondary
   }
 });

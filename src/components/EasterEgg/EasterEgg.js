@@ -1,16 +1,16 @@
-import React from 'react';
+import React from "react";
 
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-import { withStyles } from '@material-ui/core/styles';
-import styles from './EasterEgg.css';
+import { withStyles } from "@material-ui/core/styles";
+import styles from "./EasterEgg.css";
 
 // UI
-import Dialog from '@material-ui/core/Dialog';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogTitle from '@material-ui/core/DialogTitle';
+import Dialog from "@material-ui/core/Dialog";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogTitle from "@material-ui/core/DialogTitle";
 
-const EasterEgg = function(props) {
+const EasterEgg = props => {
   return (
     <Dialog
       open={true}
@@ -23,7 +23,7 @@ const EasterEgg = function(props) {
           style={{
             width: 500,
             height: 500,
-            position: 'relative'
+            position: "relative"
           }}
         >
           <iframe
@@ -31,7 +31,7 @@ const EasterEgg = function(props) {
             src="https://giphy.com/embed/LrmU6jXIjwziE"
             width="100%"
             height="100%"
-            style={{ position: 'absolute' }}
+            style={{ position: "absolute" }}
             frameBorder="0"
             className="giphy-embed"
             allowFullScreen

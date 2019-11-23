@@ -1,20 +1,20 @@
-export function filterNasaDataByOrbit(data, selectedOrbit) {
+export const filterNasaDataByOrbit = (data, selectedOrbit) => {
   return data.filter((element, index) => {
-    if (index === 0 || selectedOrbit === '') {
+    if (index === 0 || selectedOrbit === "") {
       // no need to filter
       return true;
     }
     return element.orbitingBody.includes(selectedOrbit);
   });
-}
+};
 
-export function extractListOfOrbits(nasaData) {
+export const extractListOfOrbits = nasaData => {
   const orbits = new Set();
   nasaData.map(element => element.orbitingBody.map(orbit => orbits.add(orbit)));
   return Array.from(orbits);
-}
+};
 
-export function getPlanetListFromNasaData(nasaData) {
+export const getPlanetListFromNasaData = nasaData => {
   if (nasaData == null || nasaData.near_earth_objects == null) {
     return [];
   }
@@ -38,11 +38,11 @@ export function getPlanetListFromNasaData(nasaData) {
 
       return letAverage - rightAverage;
     });
-}
+};
 
-export function formatNasaDataForChart(nasaData) {
+export const formatNasaDataForChart = nasaData => {
   const chartData = [
-    ['NEO Name', 'Min Estimated Diameter (km)', 'Max Estimated Diameter (km)']
+    ["NEO Name", "Min Estimated Diameter (km)", "Max Estimated Diameter (km)"]
   ];
 
   nasaData.forEach(element => {
@@ -50,4 +50,4 @@ export function formatNasaDataForChart(nasaData) {
   });
 
   return chartData;
-}
+};

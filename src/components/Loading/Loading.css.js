@@ -1,11 +1,11 @@
 const styles = theme => ({
   wrapper: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center"
   },
   progress: {
-    margin: theme.spacing.unit * 2
+    margin: theme.spacing(2)
   }
 });
 export default styles;

@@ -1,18 +1,18 @@
-import React from 'react';
+import React from "react";
 
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-import { withStyles } from '@material-ui/core/styles';
-import styles from './ChartContainer.css';
+import { withStyles } from "@material-ui/core/styles";
+import styles from "./ChartContainer.css";
 
 // UI
-import { Chart as GoogleChart } from 'react-google-charts';
-import Paper from '@material-ui/core/Paper';
+import { Chart as GoogleChart } from "react-google-charts";
+import Paper from "@material-ui/core/Paper";
 
-import { formatNasaDataForChart } from '../../utils/formatter';
-import Loading from '../Loading/Loading';
+import { formatNasaDataForChart } from "../../utils/formatter";
+import Loading from "../Loading/Loading";
 
-const ChartContainer = function (props) {
+const ChartContainer = props => {
   return (
     <Paper className={props.classes.paper}>
       {props.isLoading ? (
@@ -23,10 +23,10 @@ const ChartContainer = function (props) {
           width="100%"
           height="500px"
           options={{
-            bars: 'horizontal',
+            bars: "horizontal",
             axes: {
               x: {
-                label: 'Estimated Diameter (km)'
+                label: "Estimated Diameter (km)"
               }
             }
           }}

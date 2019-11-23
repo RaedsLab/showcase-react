@@ -1,21 +1,21 @@
 const styles = theme => ({
   wrapper: {
-    display: 'flex',
-    flexDirection: 'column',
+    display: "flex",
+    flexDirection: "column",
     flex: 1,
     flexShrink: 1,
     flexGrow: 1,
-    flexBasis: 'auto',
-    minHeight: 'calc(100vh - 430px)',
-    marginLeft: 25,
-    marginRight: 25
+    flexBasis: "auto",
+    minHeight: "calc(100vh - 430px)",
+    marginLeft: theme.spacing(3),
+    marginRight: theme.spacing(3)
   },
   footer: {
-    marginLeft: 50,
-    marginRight: 50,
-    marginTop: 25,
-    height: 50,
-    padding: theme.spacing.unit * 2,
+    marginLeft: theme.spacing(4),
+    marginRight: theme.spacing(4),
+    marginTop: theme.spacing(3),
+    height: theme.spacing(4),
+    padding: theme.spacing(2),
     color: theme.palette.text.secondary
   }
 });

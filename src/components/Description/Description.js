@@ -1,14 +1,14 @@
-import React from 'react';
+import React from "react";
 
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-import { withStyles } from '@material-ui/core/styles';
-import styles from './Description.css';
+import { withStyles } from "@material-ui/core/styles";
+import styles from "./Description.css";
 
 // UI
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
-import Loading from '../Loading/Loading';
+import Paper from "@material-ui/core/Paper";
+import Typography from "@material-ui/core/Typography";
+import Loading from "../Loading/Loading";
 
 const defaultMessage = (
   <div className="default-description">
@@ -22,12 +22,12 @@ const defaultMessage = (
   </div>
 );
 
-const Description = function(props) {
+const Description = props => {
   const { classes } = props;
   return (
     <Paper className={classes.description}>
       <Typography variant="caption" color="inherit">
-        {props.planet !== '' ? (
+        {props.planet !== "" ? (
           props.descriptions.isLoading ? (
             <Loading />
           ) : (
