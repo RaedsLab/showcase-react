@@ -1,11 +1,11 @@
-import React from 'react';
-import { createMount } from '@material-ui/core/test-utils';
-import { BrowserRouter } from 'react-router-dom';
-import { shape } from 'prop-types';
+import React from "react";
+import { createMount } from "@material-ui/core/test-utils";
+import { BrowserRouter } from "react-router-dom";
+import { shape } from "prop-types";
 
-import Header from './Header';
+import Header from "./Header";
 
-describe('<Header />', () => {
+describe("<Header />", () => {
   const router = {
     history: new BrowserRouter().history,
     route: {
@@ -18,7 +18,7 @@ describe('<Header />', () => {
     childContextTypes: { router: shape({}) }
   });
 
-  it('should not crash', () => {
+  it("should not crash", () => {
     const mount = createMount();
     const props = {
       isNightMode: false,
@@ -26,12 +26,17 @@ describe('<Header />', () => {
     };
 
     //const wrapper = shallow(<Header {...props} />);
-    const component = mount(<Header {...props} />, createContext());
+    const component = mount(
+      <BrowserRouter>
+        <Header {...props} />
+      </BrowserRouter>,
+      createContext()
+    );
 
     component
-      .find('input')
+      .find("input")
       .at(0)
-      .simulate('change', { target: { checked: true } });
+      .simulate("change", { target: { checked: true } });
 
     expect(props.onNightModeToggle).toHaveBeenCalled();
   });
