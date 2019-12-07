@@ -1,5 +1,5 @@
 import axios from "axios";
-export async function handler(event, context) {
+export async function handler(event, context, callback) {
   try {
     const response = await axios.get(
       "https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=DEMO_KEY",
@@ -7,10 +7,11 @@ export async function handler(event, context) {
         headers: { Accept: "application/json" }
       }
     );
-    return {
+    callback(null, {
       statusCode: 200,
-      body: response.data
-    };
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(response.data)
+    });
   } catch (err) {
     console.log(err); // output to netlify function log
     return {

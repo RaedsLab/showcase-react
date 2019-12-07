@@ -18,8 +18,10 @@
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "run-p start:**",
     "build": "run-p build:**",
+    "start:app": "react-scripts start",
+    "start:lambda": "netlify-lambda serve src/server",
     "build:app": "react-scripts build",
     "build:lambda": "netlify-lambda build src/server",
     "test": "react-scripts test",
