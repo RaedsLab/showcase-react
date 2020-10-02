@@ -13,6 +13,8 @@
 
 # Showcase React 
 
+## Abandoned
+
 This is a project I use and maintain to learn more about React and Redux.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
